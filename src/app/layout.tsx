@@ -1,10 +1,10 @@
 import { Metadata } from "next"
+import { Inter, Roboto } from "next/font/google"
 import localFont from "next/font/local"
 import { Footer, Header, ThemeProvider } from "@/components"
 import { REVALIDATE_TIME, siteConfig } from "@/config"
 import { Analytics } from "@vercel/analytics/react"
 import "@/styles/globals.css"
-import "@/styles/notion.css"
 
 export const revalidate = REVALIDATE_TIME
 
@@ -30,11 +30,31 @@ export const metadata: Metadata = {
   },
 }
 
-const display = localFont({
+const displayFont = localFont({
   src: "../assets/fonts/Acorn-Bold.woff2",
   variable: "--font-display",
   display: "swap",
 })
+
+// const displayFont = Inter({
+//   subsets: ["latin"],
+//   variable: "--font-display",
+//   display: "swap",
+// })
+
+const defaultFont = Roboto({
+  weight: ["300", "400", "500", "700"],
+  subsets: ["latin"],
+  variable: "--font-default",
+  // display: "swap",
+})
+
+// Roboto({
+//   weight: ["300", "400", "500", "700"],
+//   subsets: ["latin"],
+//   variable: "--font-default",
+//   // display: "swap",
+// })
 
 interface RootLayoutProps {
   children: React.ReactNode
@@ -42,8 +62,12 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" className={`${display.variable}`}>
-      <body>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${defaultFont.className} ${displayFont.variable} ${defaultFont.variable}`}
+    >
+      <body suppressHydrationWarning>
         <Analytics />
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <Header />

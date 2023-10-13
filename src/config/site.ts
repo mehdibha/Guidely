@@ -7,16 +7,16 @@ export const siteConfig = {
       href: "/",
     },
     {
-      title: "Blog",
-      href: "/blog",
+      title: "Guides",
+      href: "/guides",
     },
     {
-      title: "Courses",
-      href: "/courses",
+      title: "Create guide",
+      href: "/create-guide",
     },
     {
-      title: "Useful tools",
-      href: "/tools",
+      title: "Create guide (POC)",
+      href: "/create-guide-old",
     },
   ],
   description:

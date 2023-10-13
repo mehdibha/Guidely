@@ -1,6 +1,0 @@
-export * from "../../../components/hero-banner"
-export * from "./about"
-export * from "./work-experience"
-export * from "./education"
-export * from "./get-in-touch"
-export * from "./projects"
